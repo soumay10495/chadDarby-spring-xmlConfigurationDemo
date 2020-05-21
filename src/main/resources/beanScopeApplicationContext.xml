@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fortuneService" class="com.spring.xmlConfigurationDemo.HappyFortuneService"
+          scope="singleton"/>
+
+    <!-- For "prototype" scoped beans, Spring does not call the destroy method. -->
+
+    <bean id="coach" class="com.spring.xmlConfigurationDemo.BasketballCoach" scope="singleton"
+          init-method="init" destroy-method="destroy">
+        <constructor-arg ref="fortuneService"/>
+    </bean>
+</beans>
